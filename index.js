@@ -7,7 +7,7 @@ const p = require('path')
 const app = express()
 
 app.options('/upload', cors())
-app.put('/upload', cors(), upload.single('file'), function (req, res, next) {
+app.post('/upload', cors(), upload.single('file'), function (req, res, next) {
   res.json({key: req.file.filename})
 })
 app.get('/upload/:key', cors(), function(req, res, next){
